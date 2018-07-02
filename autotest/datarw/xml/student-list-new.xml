@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<studentList>
+  
+  
+  <student id="123">
+    
+    
+    <name>java</name>
+    
+    
+    <age>10</age>
+    
+  
+  </student>
+  
+
+  <student id="100">
+    <name>李白</name>
+    <age>666</age>
+  </student>
+</studentList>

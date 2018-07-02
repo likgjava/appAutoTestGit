@@ -1,0 +1,4 @@
+{
+  "test_assert.py::test_b": true,
+  "test_rerunfailures.py::test_b": true
+}

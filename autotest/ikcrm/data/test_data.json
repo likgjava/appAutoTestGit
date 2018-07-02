@@ -1,0 +1,51 @@
+{
+  "login_username_is_empty": {
+    "username": "",
+    "password": "123456"
+  },
+  "login_username_is_not_exist": {
+    "username": "000000",
+    "password": "123456"
+  },
+  "login_password_is_empty": {
+    "username": "17610763299",
+    "password": ""
+  },
+  "login_password_is_error": {
+    "username": "17610763299",
+    "password": "1"
+  },
+  "login": {
+    "username": "17610763299",
+    "password": "123456"
+  },
+
+
+  "write_report_summary_is_empty": {
+    "summary": "",
+    "plan": "明天继续加油！",
+    "read_over": "五月"
+  },
+  "write_report_plan_is_empty": {
+    "summary": "今天工作很努力！",
+    "plan": "",
+    "read_over": "五月"
+  },
+  "write_report_read_over_is_empty": {
+    "summary": "今天工作很努力！",
+    "plan": "明天继续加油！",
+    "read_over": ""
+  },
+  "write_report": {
+    "summary": "今天工作很努力！",
+    "plan": "明天继续加油！",
+    "read_over": "五月"
+  },
+
+
+  "add_cue": {
+    "name": "李白",
+    "company_name": "唐诗三百首",
+    "phone": "13800001004"
+  }
+}
