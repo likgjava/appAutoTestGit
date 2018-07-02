@@ -8,7 +8,7 @@ import time
 # 123 456
 
 
-t = time.strftime("%Y%m%d-%H%M%S", time.localtime())
+# t = time.strftime("%Y%m%d-%H%M%S", time.localtime())
 # print(t)
 
 class LoginP:
