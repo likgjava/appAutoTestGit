@@ -24,6 +24,7 @@ time.sleep(3)
 # time.sleep(3)
 # 使用TouchAction通过tap来实现轻敲屏幕，最后通过perform()方法来提交操作
 # TouchAction(driver).tap(button).perform()
+# TouchAction(driver).tap(button, x=10, y=10).perform()
 # TouchAction(driver).tap(x=440, y=90).perform()
 
 

@@ -13,11 +13,9 @@ time.sleep(5)
 
 # 安装app
 # driver.install_app("D://apk/zhihu.apk")
-# print('install_app...')
 
 # 卸载app
 # driver.remove_app("com.zhihu.android")
-# print('remove_app...')
 
 # 判断该应用是否已经安装
 # installed = driver.is_app_installed("com.zhihu.android")
@@ -25,23 +23,19 @@ time.sleep(5)
 
 # 关闭app
 # driver.close_app()
-# print('close_app...')
 # time.sleep(5)
 
 # 启动app
 # driver.launch_app()
-# print('launch_app...')
 # time.sleep(3)
 
 # 让app在后台运行指定的秒数
 # print('background_app start...')
 # driver.background_app(5)
 # print('background_app end...')
-# time.sleep(3)
 
 # 重置应用
 # driver.reset()
-# print('reset...')
 # time.sleep(5)
 
 # 获取当前包名和activity名

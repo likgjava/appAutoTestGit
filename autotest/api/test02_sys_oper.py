@@ -10,8 +10,6 @@ cap = {
     'appActivity': '.Settings'
 }
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', cap)
-time.sleep(5)
-
 
 # 获取设备时间
 # device_time = driver.device_time
@@ -51,18 +49,18 @@ time.sleep(5)
 # time.sleep(3)
 
 # 截屏操作
-# driver.get_screenshot_as_file('D:/screenshot/abc.png')
+# driver.get_screenshot_as_file('./image/img.png')
 
 
 # 文件操作
 # 上传文件
-# 将字符数组用64位格式写到设备的指定文件中
+# 将字符串转换为base64格式的数据，并写到设备的指定文件中
 # data = base64.b64encode("python中国666".encode()).decode()
 # driver.push_file("/sdcard/t1.txt", data)
 
 # 下载文件
-# data = driver.pull_file("/sdcard/t1.txt")
-# print('data=', base64.b64decode(data).decode())
+data = driver.pull_file("/sdcard/t1.txt")
+print('data=', base64.b64decode(data).decode())
 
 
 # 关闭驱动对象

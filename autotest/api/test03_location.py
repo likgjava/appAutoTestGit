@@ -3,36 +3,31 @@ import time
 from appium import webdriver
 from selenium.webdriver.common.by import By
 
-cap = {'deviceName': 'emulator', 'platformName': 'Android', 'appPackage': 'com.android.settings',
-       'appActivity': '.Settings'}
+cap = {
+    'platformName': 'Android',
+    'deviceName': 'emulator',
+    'appPackage': 'com.android.settings',
+    'appActivity': '.Settings'
+}
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', cap)
-time.sleep(5)
 
 # 获取页面源码
 # page_source = driver.page_source
 # print('page_source=', page_source)
 
-# 根据元素id定位
-# 获取单个匹配的元素
+# 使用id定位方式，定位搜索按钮，并点击
 # element = driver.find_element_by_id("com.android.settings:id/search")
-# element = driver.find_element(By.ID, "com.android.settings:id/search")
 # element.click()
-# 获取多个匹配的元素
-# elements = driver.find_elements_by_id("com.android.settings:id/title")
-# elements = driver.find_elements(By.ID, "com.android.settings:id/title")
-# print('elements.len=', len(elements))
 
-# 根据元素className定位
-# 获取单个匹配的元素
+# className定位
 # element = driver.find_element_by_class_name("android.widget.TextView")
-# element = driver.find_element(By.CLASS_NAME, "android.widget.TextView")
 # print('text=', element.text)
 
 
 # 根据元素name定位，该方式已不支持
 # element = driver.find_element_by_name("Search settings")
 
-# 根据元素content-desc定位
+# accessibility_id定位，根据元素content-desc定位
 # element = driver.find_element_by_accessibility_id("搜索设置")
 # element.click()
 
@@ -83,11 +78,11 @@ time.sleep(5)
 #     print('text=', e.text)
 
 # 定位元素的另一种写法
-element = driver.find_element(By.ID, "com.android.settings:id/search")
+# element = driver.find_element(By.ID, "com.android.settings:id/search")
 
 
-
-time.sleep(5)
+# 暂停
+time.sleep(3)
 
 # 关闭驱动对象
 driver.quit()
