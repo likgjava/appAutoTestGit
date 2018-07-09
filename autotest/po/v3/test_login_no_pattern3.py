@@ -5,7 +5,7 @@ from appium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 
-from itcast.autotest.po.utils import DriverUtil
+from autotest.po.utils import DriverUtil
 
 
 def is_exist_toast(driver, text):
@@ -30,7 +30,6 @@ class TestLogin:
     def setup_class(self):
         print('setup_class...')
         self.driver = DriverUtil.get_driver()
-        self.driver.implicitly_wait(10)
 
     def teardown_class(self):
         print('teardown_class...')

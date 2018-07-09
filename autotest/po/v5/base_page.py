@@ -1,4 +1,4 @@
-from itcast.autotest.po.utils import DriverUtil
+from autotest.po.utils import DriverUtil
 
 
 class BasePage(object):
@@ -8,7 +8,6 @@ class BasePage(object):
 
     def __init__(self):
         self.driver = DriverUtil.get_driver()
-        self.driver.implicitly_wait(10)
 
     def find_element_by_id(self, id_value):
         return self.driver.find_element_by_id(id_value)

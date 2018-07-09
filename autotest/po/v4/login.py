@@ -1,29 +1,29 @@
-from itcast.autotest.po.base_page import BasePage, BaseHandle
+from autotest.po.utils import DriverUtil
 
 
-class LoginPage(BasePage):
+class LoginPage:
     """
     登录页面-对象库层
     """
 
     def __init__(self):
-        super().__init__()
+        self.driver = DriverUtil.get_driver()
 
         self.user_name = "net.csdn.csdnplus:id/editTextUserName"
         self.password = "net.csdn.csdnplus:id/password"
         self.login_button = "net.csdn.csdnplus:id/csdnsign_in_button"
 
     def find_user_name_element(self):
-        return self.find_element_by_id(self.user_name)
+        return self.driver.find_element_by_id(self.user_name)
 
     def find_password_element(self):
-        return self.find_element_by_id(self.password)
+        return self.driver.find_element_by_id(self.password)
 
     def find_login_btn_element(self):
-        return self.find_element_by_id(self.login_button)
+        return self.driver.find_element_by_id(self.login_button)
 
 
-class LoginHandle(BaseHandle):
+class LoginHandle:
     """
     登录页面-操作层
     """
@@ -32,10 +32,10 @@ class LoginHandle(BaseHandle):
         self.loginPage = LoginPage()
 
     def set_user_name(self, user_name):
-        self.send_keys(self.loginPage.find_user_name_element(), user_name)
+        self.loginPage.find_user_name_element().send_keys(user_name)
 
     def set_password(self, password):
-        self.send_keys(self.loginPage.find_password_element(), password)
+        self.loginPage.find_password_element().send_keys(password)
 
     def click_login_btn(self):
         self.loginPage.find_login_btn_element().click()

@@ -9,11 +9,13 @@ class TestLogin:
 
     def setup_class(self):
         print('setup_class...')
-        cap = {'platformName': 'Android',
-               'deviceName': 'emulator',
-               'appPackage': 'net.csdn.csdnplus',
-               'appActivity': '.activity.SplashActivity',
-               'automationName': 'Uiautomator2'}
+        cap = {
+            'platformName': 'Android',
+            'deviceName': 'emulator',
+            'appPackage': 'net.csdn.csdnplus',
+            'appActivity': '.activity.SplashActivity',
+            'automationName': 'Uiautomator2'
+        }
         self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', cap)
         self.driver.implicitly_wait(10)
 
