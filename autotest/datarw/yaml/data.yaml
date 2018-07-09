@@ -1,0 +1,38 @@
+#name: tom
+#name2: "tom2"
+#name3: 'tom3'
+
+#name:
+#  first: "li"
+#  second: "bai"
+
+#name_list:
+#  - "tom"
+#  - "angle"
+
+#name_list: ["tom", "angle"]
+
+# 字符串
+name: tom
+name2: "tom2"
+name3: 'tom3'
+
+# 布尔值
+is_success: True
+is_success2: true
+is_success3: TRUE
+is_success4: False
+
+# 整数，浮点数
+count: 1
+price: 1.2
+pi: 3.141592653589793238
+
+# Null
+school: null
+school2: Null
+school3: NULL
+
+# 日期
+birthday: 2018-01-02
+birthday2: 2018-01-02 12:13:14.100
