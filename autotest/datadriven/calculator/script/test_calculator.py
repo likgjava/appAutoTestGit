@@ -2,8 +2,8 @@ import os
 
 import pytest
 
-from itcast.autotest.datadriven.calculator.page.calculator_page import CalculatorProxy
-from itcast.autotest.datadriven.calculator.utils import DriverUtil
+from autotest.datadriven.calculator.page.calculator_page import CalculatorProxy
+from autotest.datadriven.calculator.utils import DriverUtil
 
 
 def data():

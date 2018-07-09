@@ -1,4 +1,4 @@
-from itcast.autotest.datadriven.calculator.utils import DriverUtil
+from autotest.datadriven.calculator.utils import DriverUtil
 
 
 class BasePage(object):

@@ -1,4 +1,4 @@
-from itcast.autotest.datadriven.calculator.page.base_page import BasePage, BaseHandle
+from autotest.datadriven.calculator.page.base_page import BasePage, BaseHandle
 
 
 class CalculatorPage(BasePage):
