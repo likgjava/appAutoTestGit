@@ -48,7 +48,7 @@ class TestLogin:
         print('setup_class')
         self.driver = DriverUtil.get_driver()
 
-        self.loginProxy = LoginProxy()
+        self.login_proxy = LoginProxy()
 
     def teardown_class(self):
         print('teardown_class')
@@ -56,24 +56,24 @@ class TestLogin:
 
     def teardown(self):
         print('teardown')
-        time.sleep(10)
-        self.driver.reset()
+        time.sleep(3)
+        DriverUtil.get_driver().reset()
 
     def test_login(self):
         print('test_login')
-        self.loginProxy.login("likg_java", "csdn12345678")
+        self.login_proxy.login("likg_java", "123456")
 
         assert is_exist_text(self.driver, "已有新的版本")
 
     def test_login_username_is_null(self):
         print('test_login_username_is_null')
-        self.loginProxy.login("", "123")
+        self.login_proxy.login("", "123")
 
         assert is_exist_toast(self.driver, "用户名密码不能为空")
 
     def test_login_password_is_error(self):
         print('test_login_password_is_error')
-        self.loginProxy.login("likg_java", "error")
+        self.login_proxy.login("likg_java", "error")
 
         assert is_exist_toast(self.driver, "用户名或密码错误")
 

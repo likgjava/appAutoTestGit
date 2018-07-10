@@ -1,3 +1,5 @@
+from selenium.webdriver.common.by import By
+
 from autotest.po.utils import DriverUtil
 
 
@@ -9,18 +11,18 @@ class LoginPage:
     def __init__(self):
         self.driver = DriverUtil.get_driver()
 
-        self.user_name = "net.csdn.csdnplus:id/editTextUserName"
-        self.password = "net.csdn.csdnplus:id/password"
-        self.login_button = "net.csdn.csdnplus:id/csdnsign_in_button"
+        self.user_name = (By.ID, "net.csdn.csdnplus:id/editTextUserName")
+        self.password = (By.ID, "net.csdn.csdnplus:id/password")
+        self.login_btn = (By.ID, "net.csdn.csdnplus:id/csdnsign_in_button")
 
-    def find_user_name_element(self):
-        return self.driver.find_element_by_id(self.user_name)
+    def find_user_name(self):
+        return self.driver.find_element(self.user_name[0], self.user_name[1])
 
-    def find_password_element(self):
-        return self.driver.find_element_by_id(self.password)
+    def find_password(self):
+        return self.driver.find_element(self.password[0], self.password[1])
 
-    def find_login_btn_element(self):
-        return self.driver.find_element_by_id(self.login_button)
+    def find_login_btn(self):
+        return self.driver.find_element(self.login_btn[0], self.login_btn[1])
 
 
 class LoginHandle:
@@ -29,16 +31,18 @@ class LoginHandle:
     """
 
     def __init__(self):
-        self.loginPage = LoginPage()
+        self.login_page = LoginPage()
 
-    def set_user_name(self, user_name):
-        self.loginPage.find_user_name_element().send_keys(user_name)
+    def input_user_name(self, user_name):
+        self.login_page.find_user_name().clear()
+        self.login_page.find_user_name().send_keys(user_name)
 
-    def set_password(self, password):
-        self.loginPage.find_password_element().send_keys(password)
+    def input_password(self, password):
+        self.login_page.find_password().clear()
+        self.login_page.find_password().send_keys(password)
 
     def click_login_btn(self):
-        self.loginPage.find_login_btn_element().click()
+        self.login_page.find_login_btn().click()
 
 
 class LoginProxy:
@@ -47,9 +51,9 @@ class LoginProxy:
     """
 
     def __init__(self):
-        self.loginHandle = LoginHandle()
+        self.login_handle = LoginHandle()
 
     def login(self, user_name, password):
-        self.loginHandle.set_user_name(user_name)
-        self.loginHandle.set_password(password)
-        self.loginHandle.click_login_btn()
+        self.login_handle.input_user_name(user_name)
+        self.login_handle.input_password(password)
+        self.login_handle.click_login_btn()
