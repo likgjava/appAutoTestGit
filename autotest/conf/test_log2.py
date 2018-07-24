@@ -7,8 +7,7 @@ import os
 def setup_logging(
         default_path='logging.json',
         default_level=logging.INFO,
-        env_key='LOG_CFG'
-):
+        env_key='LOG_CFG'):
     """Setup logging configuration
     """
     path = default_path

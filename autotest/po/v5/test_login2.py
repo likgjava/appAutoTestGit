@@ -61,7 +61,7 @@ class TestLogin:
 
     def test_login(self):
         print('test_login')
-        self.login_proxy.login("likg_java", "123456")
+        self.login_proxy.login("likg_java", "csdn12345678")
 
         assert is_exist_text(self.driver, "已有新的版本")
 

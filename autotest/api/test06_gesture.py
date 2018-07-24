@@ -14,9 +14,6 @@ cap = {
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', cap)
 time.sleep(3)
 
-
-
-
 # 点击
 # 点击搜索按钮
 # button = driver.find_element_by_id("com.android.settings:id/search")
@@ -46,16 +43,6 @@ time.sleep(3)
 # print('width={} height={}'.format(width, height))
 # 上滑
 # driver.swipe(width / 2, height * 9 / 10, width / 2, height / 10, 5000)
-
-# 元素滑动
-# element = driver.find_element_by_xpath("//*[contains(@text, 'hello')]/..")
-# print(element.location)
-# print(element.size)
-# start_x = element.location['x'] + element.size['width'] * 9 / 10
-# start_y = element.location['y'] + element.size['height'] / 2
-# end_x = element.location['x'] + element.size['width'] / 10
-# end_y = start_y
-# driver.swipe(start_x, start_y, end_x, end_y, 1000)
 
 # 滚动
 # destination = driver.find_element_by_xpath("//android.widget.TextView[@text='WLAN']")
