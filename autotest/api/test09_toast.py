@@ -5,8 +5,13 @@ from datetime import datetime
 from appium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 
-cap = {'deviceName': 'emulator', 'platformName': 'Android', 'appPackage': 'net.csdn.csdnplus',
-       'appActivity': '.activity.SplashActivity', 'automationName': 'Uiautomator2'}
+cap = {
+    'platformName': 'Android',
+    'deviceName': 'emulator',
+    'appPackage': 'net.csdn.csdnplus',
+    'appActivity': '.activity.SplashActivity',
+    'automationName': 'Uiautomator2'
+}
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', cap)
 time.sleep(5)
 
