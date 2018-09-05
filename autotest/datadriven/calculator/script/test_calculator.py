@@ -22,7 +22,7 @@ class TestCalculator:
     def setup_class(self):
         print('setup_class')
         self.driver = DriverUtil.get_driver()
-        self.calculatorProxy = CalculatorProxy()
+        self.calculator_proxy = CalculatorProxy()
 
     def teardown_class(self):
         print('teardown_class')
@@ -36,10 +36,10 @@ class TestCalculator:
     def test_add(self, a, b, expect):
         print('a={} b={} expect={}'.format(a, b, expect))
 
-        self.calculatorProxy.add(a, b)
+        self.calculator_proxy.add(a, b)
 
         # 获取计算结果
-        result = self.calculatorProxy.get_result()
+        result = self.calculator_proxy.get_result()
         assert result == expect
 
 

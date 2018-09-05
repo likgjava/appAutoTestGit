@@ -3,7 +3,7 @@ import time
 import pytest
 
 from autotest.po.utils import DriverUtil, is_exist_toast
-from autotest.po.v4.login import LoginProxy
+from autotest.po.v5.login import LoginProxy
 
 
 class TestLogin:

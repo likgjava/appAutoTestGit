@@ -28,17 +28,6 @@ class TestLogin:
         time.sleep(5)
         self.driver.reset()
 
-    def test_login(self):
-        print('test_login...')
-        time.sleep(5)
-
-        self.driver.find_element_by_id('net.csdn.csdnplus:id/editTextUserName').send_keys('likg_java')
-        self.driver.find_element_by_id('net.csdn.csdnplus:id/password').send_keys('123')
-        self.driver.find_element_by_id('net.csdn.csdnplus:id/csdnsign_in_button').click()
-
-        title = self.driver.find_element_by_id('net.csdn.csdnplus:id/tvtitle')
-        assert title.text == '头条'
-
     def test_login_username_is_null(self):
         print('test_login_username_is_null...')
         time.sleep(5)
@@ -47,8 +36,8 @@ class TestLogin:
         self.driver.find_element_by_id('net.csdn.csdnplus:id/csdnsign_in_button').click()
 
         xpath = ".//*[contains(@text,'{}')]".format('用户名密码不能为空')
-        until = WebDriverWait(self.driver, 10, 0.1).until(lambda x: x.find_element_by_xpath(xpath))
-        assert until is not None
+        element = WebDriverWait(self.driver, 10, 0.1).until(lambda x: x.find_element_by_xpath(xpath))
+        assert element is not None
 
     def test_login_password_is_error(self):
         print('test_login_username_is_null...')
@@ -59,8 +48,19 @@ class TestLogin:
         self.driver.find_element_by_id('net.csdn.csdnplus:id/csdnsign_in_button').click()
 
         xpath = ".//*[contains(@text,'{}')]".format('用户名或密码错误')
-        until = WebDriverWait(self.driver, 10, 0.1).until(lambda x: x.find_element_by_xpath(xpath))
-        assert until is not None
+        element = WebDriverWait(self.driver, 10, 0.1).until(lambda x: x.find_element_by_xpath(xpath))
+        assert element is not None
+
+    def test_login(self):
+        print('test_login...')
+        time.sleep(5)
+
+        self.driver.find_element_by_id('net.csdn.csdnplus:id/editTextUserName').send_keys('likg_java')
+        self.driver.find_element_by_id('net.csdn.csdnplus:id/password').send_keys('123')
+        self.driver.find_element_by_id('net.csdn.csdnplus:id/csdnsign_in_button').click()
+
+        title = self.driver.find_element_by_id('net.csdn.csdnplus:id/tvtitle')
+        assert title.text == '头条'
 
 
 if __name__ == '__main__':

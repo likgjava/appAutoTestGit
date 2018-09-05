@@ -18,7 +18,7 @@ class BaseHandle(object):
     基础-操作层
     """
 
-    def send_keys(self, element, text):
+    def input_text(self, element, text):
         """
         在文本框中输入内容，输入前先清空
         :param element: 文本框元素

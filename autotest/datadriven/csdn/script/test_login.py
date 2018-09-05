@@ -1,30 +1,12 @@
-import json
 import os
 import time
 
 import pytest
+import yaml
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.wait import WebDriverWait
 
-from itcast.autotest.datadriven.csdn.page.login_page import LoginProxy
-from itcast.autotest.datadriven.csdn.utils import DriverUtil
-
-
-def is_exist_toast(driver, text):
-    """
-    判断toast元素是否存在
-    :param driver: 驱动对象
-    :param text: toast内容
-    :return: 存在返回True，不存在返回False
-    """
-    try:
-        xpath = "//*[contains(@text, '{}')]".format(text)
-        ele = WebDriverWait(driver, 10, 0.1).until(lambda x: x.find_element_by_xpath(xpath))
-        print("ele=====", ele)
-        return ele is not None
-    except TimeoutException:
-        print("not find toast={}".format(text))
-        return False
+from autotest.datadriven.csdn.page.login_page import LoginProxy
+from autotest.datadriven.csdn.utils import DriverUtil, is_exist_toast
 
 
 def is_exist_text(driver, text):
@@ -46,10 +28,13 @@ def is_exist_text(driver, text):
 
 def load_data():
     test_data = []
-    data_file = os.getcwd() + "/../data/testData.json"
+    data_file = os.getcwd() + "/../data/login.yaml"
     print("data_file=", data_file)
     with open(data_file, encoding='UTF-8') as f:
-        test_data = json.load(f)
+        test_data = yaml.load(f)
+        for data in test_data.get("test_login").values():
+            test_data.append((data["username"], data["password"], data["toast"], data["is_success"]))
+    print("test_data=", test_data)
     return test_data
 
 
@@ -70,30 +55,15 @@ class TestLogin:
         time.sleep(10)
         self.driver.reset()
 
-    def test_login(self):
-        print('test_login')
+    @pytest.mark.parametrize("username,password,toast,is_success", load_data())
+    def test_login(self, username, password, toast, is_success):
+        print("test_login username={} password={} toast={} is_success={}", username, password, toast, is_success)
+        self.loginProxy.login(username, password)
 
-        data = self.testData['loginSuccess']
-        print('data=', data)
-        self.loginProxy.login(data['userName'], data['password'])
-
-        assert is_exist_text(self.driver, "已有新的版本")
-
-    def test_login_username_is_null(self):
-        print('test_login_username_is_null')
-        data = self.testData['loginUserNameIsNull']
-        print('data=', data)
-        self.loginProxy.login(data['userName'], data['password'])
-
-        assert is_exist_toast(self.driver, "用户名密码不能为空")
-
-    def test_login_password_is_error(self):
-        print('test_login_password_is_error')
-        data = self.testData['loginPasswordIsError']
-        print('data=', data)
-        self.loginProxy.login(data['userName'], data['password'])
-
-        assert is_exist_toast(self.driver, "用户名或密码错误")
+        if is_success:
+            assert is_exist_text(self.driver, toast)
+        else:
+            assert is_exist_toast(toast)
 
 
 if __name__ == '__main__':

@@ -2,25 +2,8 @@ import time
 
 import pytest
 from appium import webdriver
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.wait import WebDriverWait
 
-
-def is_exist_toast(driver, text):
-    """
-    判断toast元素是否存在
-    :param driver: 驱动对象
-    :param text: toast内容
-    :return: 存在返回True，不存在返回False
-    """
-    try:
-        xpath = "//*[contains(@text, '{}')]".format(text)
-        ele = WebDriverWait(driver, 10, 0.1).until(lambda x: x.find_element_by_xpath(xpath))
-        print("ele=====", ele)
-        return ele is not None
-    except TimeoutException:
-        print("not find toast={}".format(text))
-        return False
+from autotest.po.utils import is_exist_toast
 
 
 class TestLogin:
@@ -65,7 +48,7 @@ class TestLogin:
         self.driver.find_element_by_id('net.csdn.csdnplus:id/password').send_keys('123')
         self.driver.find_element_by_id('net.csdn.csdnplus:id/csdnsign_in_button').click()
 
-        assert is_exist_toast(self.driver, "用户名密码不能为空999")
+        assert is_exist_toast("用户名密码不能为空999")
 
     def test_login_password_is_error(self):
         print('test_login_username_is_null...')
@@ -75,7 +58,7 @@ class TestLogin:
         self.driver.find_element_by_id('net.csdn.csdnplus:id/password').send_keys('123')
         self.driver.find_element_by_id('net.csdn.csdnplus:id/csdnsign_in_button').click()
 
-        assert is_exist_toast(self.driver, "用户名或密码错误")
+        assert is_exist_toast("用户名或密码错误")
 
 
 if __name__ == '__main__':

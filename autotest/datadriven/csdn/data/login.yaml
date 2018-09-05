@@ -1,0 +1,15 @@
+test_login:
+  loginUserNameIsNull:
+    username: ""
+    password: "123456"
+    toast: "用户名密码不能为空"
+  loginPasswordIsError:
+    username: "itest2018"
+    password: "error"
+    toast: "用户名或密码错误"
+  loginSuccess:
+    username: "itest2018"
+    password: "123456"
+    toast: "已有新的版本"
+    is_success: true
+
